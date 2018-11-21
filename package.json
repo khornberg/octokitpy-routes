@@ -1,0 +1,7 @@
+{
+  "name": "does-not-get-published",
+  "version": "0.0.0",
+  "dependencies": {
+    "@octokit/routes": "15.0.0"
+  }
+}
