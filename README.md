@@ -1,2 +1,2 @@
 # routes
-octokit routes -> package managers updates
+octokit routes from npm published to pypi
