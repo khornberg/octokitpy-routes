@@ -22,7 +22,7 @@ action "Check" {
 
 action "Package" {
   uses = "khornberg/python-actions/setup-py/3.7@master"
-  args = "bdist sdist"
+  args = "bdist_wheel sdist"
   needs = ["Check"]
 }
 
