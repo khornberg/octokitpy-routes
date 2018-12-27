@@ -8,10 +8,16 @@ action "action-filter" {
   args = "branch master"
 }
 
+action "Get NPM Dependencies" {
+  uses = "actions/npm@e7aaefe"
+  needs = ["action-filter"]
+  args = "install"
+}
+
 action "Check" {
   uses = "khornberg/python-actions/setup-py/3.7@master"
   args = "check"
-  needs = ["action-filter"]
+  needs = ["Get NPM Dependencies"]
 }
 
 action "Package" {
