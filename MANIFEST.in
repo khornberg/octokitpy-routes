@@ -1,0 +1,2 @@
+recursive-include routes *.py
+recursive-include routes *.json
