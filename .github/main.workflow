@@ -1,6 +1,9 @@
 workflow "Publish to PyPi" {
   on = "push"
-  resolves = ["PyPi Twine Upload"]
+  resolves = [
+    "PyPi Twine Upload",
+    "Get NPM Dependencies",
+  ]
 }
 
 action "action-filter" {
@@ -14,10 +17,17 @@ action "Get NPM Dependencies" {
   args = "install"
 }
 
+action "Copy routes" {
+  uses = "actions/action-builder/shell@master"
+  runs = "sh"
+  args = "cp node_modules/@octokit/routes/index.json routes",
+  needs = ["Get NPM Dependencies"]
+}
+
 action "Check" {
   uses = "khornberg/python-actions/setup-py/3.7@master"
   args = "check"
-  needs = ["Get NPM Dependencies"]
+  needs = ["Copy routes"]
 }
 
 action "Package" {
