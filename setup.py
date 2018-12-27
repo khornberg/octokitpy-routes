@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 
-import json
 from setuptools import setup
-
-
-def get_version():
-    with open('package.json', 'r') as f:
-        package = json.load(f)
-        return(package['dependencies']['@octokit/routes'])
 
 
 setup(
     name='octokitpy-routes',
-    version=get_version(),
+    version='0.0.0',
     description='Routes for octokitpy',
     long_description='Routes from the NPM published octokit routes',
     author='Kyle Hornberg',
