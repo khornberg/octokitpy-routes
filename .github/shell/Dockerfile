@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine
 COPY "entrypoint.sh" "/entrypoint.sh"
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["help"]
+CMD ["whoami"]
