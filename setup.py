@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import json
-from distutils.core import setup
+from setuptools import setup
 
 
 def get_version():
