@@ -18,8 +18,7 @@ action "Get NPM Dependencies" {
 }
 
 action "Copy routes" {
-  uses = "actions/action-builder/shell@master"
-  runs = "sh"
+  uses = "./shell"
   args = "cp node_modules/@octokit/routes/index.json routes",
   needs = ["Get NPM Dependencies"]
 }
