@@ -1,3 +1,5 @@
 package-lock.json
 build
 MANIFEST
+*.egg-info
+*.pyc
