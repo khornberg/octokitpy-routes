@@ -19,7 +19,7 @@ action "Get NPM Dependencies" {
 
 action "Copy routes" {
   uses = "./.github/shell"
-  args = "cp ./node_modules/@octokit/routes/routes/api.github.com/index.json routes/"
+  args = "cp -r ./node_modules/@octokit/routes/routes/ routes/"
   needs = ["Get NPM Dependencies"]
 }
 
