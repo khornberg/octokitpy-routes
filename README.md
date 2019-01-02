@@ -22,3 +22,7 @@ from routes import specifications
 public_route_data = specifications['api.github.com']
 github_enterprise_route_data = specifications['ghe-2.15']
 ```
+
+## requirements
+
+python 3.5+ for the use of `scandir`
