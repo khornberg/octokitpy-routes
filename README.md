@@ -26,3 +26,19 @@ github_enterprise_route_data = specifications['ghe-2.15']
 ## requirements
 
 python 3.5+ for the use of `scandir`
+
+## changelog
+
+### 0.1.0
+
+This changes the version of the routes from 16 to 19; several major versions. There are some breaking changes.
+
+Of note, a change to v19 includes,
+
+    Note that this version introduced the deprecation of parameters.
+
+    number was deprecated in favor of issue_number, milestone_number, pull_number
+    external_identity_guid was deprecated in favor of scim_user_id
+    Ideally the library would still accept the deprecated parameters but log a deprecation message. All deprecations have a timestamp, so if you release a breaking version in future, you can bump this timestamp and ignore all deprecations older than that
+
+[Link](https://github.com/khornberg/octokitpy-routes/pull/27#issuecomment-481837113)
