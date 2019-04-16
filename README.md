@@ -29,6 +29,10 @@ python 3.5+ for the use of `scandir`
 
 ## changelog
 
+### 0.2.0
+
+Version 20 for octokit/routes. [See the release notes for breaking changes](https://github.com/octokit/routes/releases)
+
 ### 0.1.0
 
 This changes the version of the routes from 16 to 19; several major versions. There are some breaking changes.
