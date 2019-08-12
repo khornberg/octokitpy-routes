@@ -1,0 +1,38 @@
+on:
+  push:
+    branches:
+      - master
+name: Publish to PyPi
+jobs:
+  copyRoutes:
+    name: Copy routes
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        version: 3.7
+    - name: Copy routes
+      run: |
+        cp -r ./node_modules/@octokit/routes/routes/ routes/
+    - name: Check
+      run: |
+        check
+    - name: Package
+      run: |
+        bdist_wheel sdist
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        version: 12.x
+    - name: Get NPM Dependencies
+      run: |
+        install
+    - name: PyPi Twine Upload
+      env:
+        TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
+        TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
+      run: |
+        pip install twine
+        upload dist/*
