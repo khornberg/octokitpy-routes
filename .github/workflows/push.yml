@@ -36,4 +36,4 @@ jobs:
         TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
       run: |
         pip install twine
-        upload dist/*
+        twine upload dist/*
