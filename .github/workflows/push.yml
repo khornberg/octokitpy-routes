@@ -25,10 +25,10 @@ jobs:
         cp -r ./node_modules/@octokit/routes/routes/ routes/
     - name: Check
       run: |
-        check
+        python setup.py check
     - name: Package
       run: |
-        bdist_wheel sdist
+        python setup.py bdist_wheel sdist
     - name: PyPi Twine Upload
       env:
         TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
