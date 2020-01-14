@@ -37,3 +37,6 @@ jobs:
     - name: List tarball files
       run: |
         tar -xzvf dist/*.tar.gz
+    - name: Test
+      run: |
+        python -m unittest

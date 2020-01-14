@@ -23,10 +23,13 @@ jobs:
     - name: Copy routes
       run: |
         cp -r ./node_modules/@octokit/routes/ octokit_routes/
-        rm octokit_routes/package.json
+        rm octokit_routes/routes/package.json
     - name: Check
       run: |
         python setup.py check
+    - name: Test
+      run: |
+        python -m unittest
     - name: Package
       run: |
         pip install wheel
