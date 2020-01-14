@@ -1,11 +1,11 @@
 on:
-  push:
+  pull_request:
     branches:
       - master
-name: Publish to PyPi
+name: Test
 jobs:
-  copyRoutes:
-    name: Copy routes
+  routes:
+    name: routes
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -23,21 +23,20 @@ jobs:
     - name: Copy routes
       run: |
         cp -r ./node_modules/@octokit/routes/ octokit_routes/
-        rm octokit_routes/routes/package.json
+    - name: List files
+      run: |
+        ls -lah ./node_modules/@octokit/routes/
+        ls -lah octokit_routes/
     - name: Check
       run: |
         python setup.py check
-    - name: Test
-      run: |
-        python -m unittest
     - name: Package
       run: |
         pip install wheel
         python setup.py bdist_wheel sdist
-    - name: PyPi Twine Upload
-      env:
-        TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
-        TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
+    - name: List tarball files
       run: |
-        pip install twine
-        twine upload dist/*
+        tar -xzvf dist/*.tar.gz
+    - name: Test
+      run: |
+        python -m unittest
