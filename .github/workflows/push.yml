@@ -22,7 +22,8 @@ jobs:
         npm install
     - name: Copy routes
       run: |
-        cp -r ./node_modules/@octokit/routes/ routes/
+        cp -r ./node_modules/@octokit/routes/ octokit_routes/
+        rm octokit_routes/package.json
     - name: Check
       run: |
         python setup.py check
