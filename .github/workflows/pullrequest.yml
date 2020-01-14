@@ -1,0 +1,39 @@
+on:
+  pull_request:
+    branches:
+      - master
+name: Test
+jobs:
+  routes:
+    name: routes
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        version: 3.7
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        version: 12.x
+    - name: Get NPM Dependencies
+      run: |
+        npm install
+    - name: Copy routes
+      run: |
+        cp -r ./node_modules/@octokit/routes/ octokit_routes/
+    - name: List files
+      run: |
+        ls -lah ./node_modules/@octokit/routes/
+        ls -lah octokit_routes/
+    - name: Check
+      run: |
+        python setup.py check
+    - name: Package
+      run: |
+        pip install wheel
+        python setup.py bdist_wheel sdist
+    - name: List tarball files
+      run: |
+        tar -xzvf dist/*.tar.gz
