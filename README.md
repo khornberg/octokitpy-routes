@@ -29,6 +29,10 @@ python 3.5+ for the use of `scandir`
 
 ## changelog
 
+### 2.1.0
+
+Version 27 of octokit/routes. [See the release notes for breaking changes](https://github.com/octokit/routes/releases)
+
 ### 2.0.0
 
 Version 26 of octokit/routes. [See the release notes for breaking changes](https://github.com/octokit/routes/releases)
@@ -50,7 +54,7 @@ This changes the version of the routes from 16 to 19; several major versions. Th
 Of note, a change to v19 includes,
 
     Note that this version introduced the deprecation of parameters.
-    
+
     number was deprecated in favor of issue_number, milestone_number, pull_number
     external_identity_guid was deprecated in favor of scim_user_id
     Ideally the library would still accept the deprecated parameters but log a deprecation message. All deprecations have a timestamp, so if you release a breaking version in future, you can bump this timestamp and ignore all deprecations older than that
