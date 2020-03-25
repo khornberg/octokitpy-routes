@@ -2,6 +2,6 @@
   "name": "does-not-get-published",
   "version": "0.0.0",
   "dependencies": {
-    "@octokit/routes": "27.9.3"
+    "@octokit/routes": "27.9.4"
   }
 }
