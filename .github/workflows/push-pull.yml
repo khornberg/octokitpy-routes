@@ -1,11 +1,14 @@
 on:
+  push:
+    branches:
+      - master
   pull_request:
     branches:
       - master
-name: Test
+name: Publish to PyPi
 jobs:
-  routes:
-    name: routes
+  copyRoutes:
+    name: Copy routes
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -23,20 +26,26 @@ jobs:
     - name: Copy routes
       run: |
         cp -r ./node_modules/@octokit/routes/ octokit_routes/
-    - name: List files
+        rm octokit_routes/routes/package.json
+    - name: Copy webhooks
       run: |
-        ls -lah ./node_modules/@octokit/routes/
-        ls -lah octokit_routes/
+        mkdir -p octokit_routes/webhooks
+        cp ./node_modules/@octokit/webhooks/lib/webhook-names.json octokit_routes/webhooks/names.json
     - name: Check
       run: |
         python setup.py check
+    - name: Test
+      run: |
+        python -m unittest
     - name: Package
       run: |
         pip install wheel
         python setup.py bdist_wheel sdist
-    - name: List tarball files
+    - name: PyPi Twine Upload
+      if: github.event_name == 'push'
+      env:
+        TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
+        TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
       run: |
-        tar -xzvf dist/*.tar.gz
-    - name: Test
-      run: |
-        python -m unittest
+        pip install twine
+        twine upload dist/*
