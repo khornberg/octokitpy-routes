@@ -3,3 +3,6 @@ build
 MANIFEST
 *.egg-info
 *.pyc
+/octokit_routes/routes/
+/octokit_routes/webhooks/
+/dist/
