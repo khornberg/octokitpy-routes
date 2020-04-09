@@ -21,6 +21,8 @@ Each specification is loaded and available as a single JSON loaded Python object
 from octokit_routes import specifications
 public_route_data = specifications['api.github.com']
 github_enterprise_route_data = specifications['ghe-2.15']
+
+from octokit_routes import webhook_names
 ```
 
 ## requirements
@@ -28,6 +30,10 @@ github_enterprise_route_data = specifications['ghe-2.15']
 python 3.5+ for the use of `scandir`
 
 ## changelog
+
+### 2.2.0
+
+[Adds webhook names](https://github.com/octokit/webhooks)
 
 ### 2.1.0
 
