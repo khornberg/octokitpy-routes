@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "dependencies": {
     "@octokit/routes": "27.13.3",
-    "@octokit/webhooks": "7.3.0"
+    "@octokit/webhooks": "7.4.0"
   }
 }
