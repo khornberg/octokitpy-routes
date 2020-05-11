@@ -2,7 +2,7 @@
   "name": "does-not-get-published",
   "version": "0.0.0",
   "dependencies": {
-    "@octokit/routes": "27.16.0",
+    "@octokit/routes": "27.18.0",
     "@octokit/webhooks": "7.4.0"
   }
 }
