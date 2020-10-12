@@ -30,7 +30,7 @@ jobs:
     - name: Copy webhooks
       run: |
         mkdir -p octokit_routes/webhooks
-        cp ./node_modules/@octokit/webhooks/lib/webhook-names.json octokit_routes/webhooks/names.json
+        cp ./node_modules/@octokit/webhooks-definitions/index.json octokit_routes/webhooks/index.json
     - name: Check
       run: |
         python setup.py check

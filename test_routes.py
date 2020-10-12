@@ -11,3 +11,6 @@ class TestRoutes(unittest.TestCase):
 class TestWebhooks(unittest.TestCase):
     def test_can_import_webhooks(self):
         self.assertTrue("*" in webhook_names)
+        self.assertTrue('check_suite.completed' in webhook_names)
+        self.assertTrue('workflow_run.requested' in webhook_names)
+        self.assertTrue('push' in webhook_names)

@@ -10,7 +10,11 @@ def _load_json(path):
 
 
 def _load_webhook_names():
-    return _load_json(os.path.join(__location__, "webhooks", "names.json"))
+    webhooks = _load_json(os.path.join(__location__, "webhooks", "index.json"))
+    webhook_names = ["*"]
+    webhook_names += [m['name'] + ".{}".format(n) for m in webhooks for n in m['actions']]
+    webhook_names += [m['name'] for m in webhooks if m['actions'] == []]
+    return webhook_names
 
 
 def _load_spec(spec_name):
