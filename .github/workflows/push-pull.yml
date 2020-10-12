@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Set up Python 3.7
-      uses: actions/setup-python@v1
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
       with:
-        version: 3.7
+        version: 3.8
     - name: Use Node.js 12.x
       uses: actions/setup-node@v1
       with:
@@ -30,7 +30,7 @@ jobs:
     - name: Copy webhooks
       run: |
         mkdir -p octokit_routes/webhooks
-        cp ./node_modules/@octokit/webhooks/lib/webhook-names.json octokit_routes/webhooks/names.json
+        cp ./node_modules/@octokit/webhooks-definitions/index.json octokit_routes/webhooks/index.json
     - name: Check
       run: |
         python setup.py check
