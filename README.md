@@ -31,6 +31,9 @@ python 3.5+ for the use of `scandir`
 
 ## changelog
 
+### 2.3.0
+Changes the webhook npm package
+
 ### 2.2.0
 
 [Adds webhook names](https://github.com/octokit/webhooks)
