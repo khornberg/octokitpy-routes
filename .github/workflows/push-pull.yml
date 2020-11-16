@@ -43,6 +43,7 @@ jobs:
         python setup.py bdist_wheel sdist
     - name: PyPi Check Upload
       if: github.event_name == 'push'
+      continue-on-error: true
       env:
         PIP_INDEX_URL: "https://pypi.org/simple/"
       run: |
