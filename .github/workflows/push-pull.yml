@@ -48,6 +48,10 @@ jobs:
         PACKAGE_NAME=$(python setup.py --name)
         PACKAGE_VERSION=$(python setup.py --version)
         curl -s "$PIP_INDEX_URL$PACKAGE_NAME/" | grep "$PACKAGE_NAME-$PACKAGE_VERSION"
+    - name: Finish well
+      if: github.event_name != 'push' && failure()
+      run: |
+        echo "Will upload a new version"
     - name: PyPi Twine Upload
       if: github.event_name == 'push' && failure()
       env:
