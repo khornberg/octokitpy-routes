@@ -42,6 +42,7 @@ jobs:
         pip install wheel
         python setup.py bdist_wheel sdist
     - name: PyPi Check Upload
+      id: pypi_check
       if: github.event_name == 'push'
       continue-on-error: true
       env:
@@ -51,7 +52,7 @@ jobs:
         PACKAGE_VERSION=$(python setup.py --version)
         curl -s "$PIP_INDEX_URL$PACKAGE_NAME/" | grep "$PACKAGE_NAME-$PACKAGE_VERSION"
     - name: PyPi Twine Upload
-      if: github.event_name == 'push' && failure()
+      if: github.event_name == 'push' && steps.pypi_check.outcome == 'failure'
       env:
         TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
         TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
