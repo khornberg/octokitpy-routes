@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='octokitpy-routes',
-    version='2.4.0',
+    version='2.5.0',
     description='Routes for octokitpy',
     long_description='Routes from the NPM published octokit routes',
     author='Kyle Hornberg',
