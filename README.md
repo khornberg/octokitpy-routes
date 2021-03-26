@@ -31,6 +31,12 @@ python 3.5+ for the use of `scandir`
 
 ## changelog
 
+### 2.5.0
+Load JSON files with UTF-8 encoding for Windows
+
+### 2.4.0
+No actual changes - update deploy script
+
 ### 2.3.0
 Changes the webhook npm package
 
