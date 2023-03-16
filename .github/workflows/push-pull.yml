@@ -17,7 +17,7 @@ jobs:
       with:
         python-version: 3.8
     - name: Use Node.js 12.x
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: 12.x
     - name: Get NPM Dependencies
